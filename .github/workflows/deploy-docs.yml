@@ -4,20 +4,31 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: write   # REQUIRED for mkdocs gh-deploy to push to gh-pages
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Install MkDocs Material
-        run: pip install mkdocs-material mkdocs-minify-plugin mkdocs-autorefs
+      - name: Install MkDocs + plugins
+        run: |
+          pip install \
+            mkdocs-material \
+            mkdocs-minify-plugin \
+            mkdocs-autorefs \
+            pymdown-extensions
 
       - name: Build and Deploy
         run: mkdocs gh-deploy --force
