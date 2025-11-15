@@ -1,0 +1,143 @@
+site_name: Corelytics Cloud Explorer Docs
+site_url: https://docs.corelytics.cloud
+site_description: >
+  Corelytics Cloud Explorer — documentation for unified multi-cloud navigation,
+  compliance intelligence, and automated command-to-control mapping.
+
+# ------------------------------
+# GLOBAL EXTRAS
+# ------------------------------
+extra:
+  generator: false
+
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://corelytics.cloud
+      name: Corelytics Homepage
+
+    - icon: fontawesome/solid/shield-halved
+      link: /compliance
+      name: Compliance Documentation
+
+  analytics:
+    provider: google
+    property: ""   # leave empty until you add G-ID
+
+  alternate:
+    - name: Light Mode
+      link: /
+      lang: en
+    - name: Dark Mode
+      link: /
+      lang: en
+
+# ------------------------------
+# THEME
+# ------------------------------
+theme:
+  name: material
+  language: en
+
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+  # No logos or favicons since you don’t want images right now.
+
+  palette:
+    - scheme: slate
+      primary: blue
+      accent: cyan
+
+  features:
+    # Navigation
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.instant
+    - navigation.top
+    - navigation.tracking
+
+    # Header & footer behavior
+    - header.autohide
+    - navigation.footer
+
+    # Search
+    - search.suggest
+    - search.highlight
+    - search.share
+
+    # Content
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+
+    # Announcements optional
+    - announce.dismiss
+
+  icon:
+    social: fontawesome/brands/github
+
+# ------------------------------
+# PLUGINS
+# ------------------------------
+plugins:
+  - search:
+      separator: '[\s\-\.]+'
+      lang: en
+  - autorefs
+  - minify:
+      minify_html: true
+
+# ------------------------------
+# MARKDOWN EXTENSIONS
+# ------------------------------
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - footnotes
+  - meta
+  - def_list
+  - tables
+  - abbr
+  - attr_list
+  - md_in_html
+
+  - pymdownx.superfences
+  - pymdownx.details
+
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums_style: table
+
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+
+# ------------------------------
+# NAVIGATION TREE
+# ------------------------------
+nav:
+  - Home: index.md
+  - Roadmap: roadmap.md
+  - Architecture:
+      - Overview: architecture.md
+      - UI:
+          - Overview: ui/overview.md
+          - Control Mode: ui/control-mode.md
+          - Provider Mode: ui/provider-mode.md
+      - Data Pipeline:
+          - Overview: data-pipeline/overview.md
+          - CLI Ingestors: data-pipeline/cli-ingestors.md
+          - Compliance Frameworks: data-pipeline/compliance-frameworks.md
+  - Compliance:
+      - NIST 800-53: compliance/nist.md
+      - FedRAMP: compliance/fedramp.md
+      - CMMC: compliance/cmmc.md
+  - Developer:
+      - Contributing: dev/contributing.md
+      - TODO: dev/todo.md
+
